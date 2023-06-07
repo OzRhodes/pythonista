@@ -3,6 +3,7 @@ from flask import Flask, render_template
 # Create our Flask Instance
 
 app = Flask(__name__)
+app.config['TESTING'] = True
 
 # Create URL Routeshello
 
