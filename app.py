@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, EmailField
 from wtforms.validators import DataRequired
@@ -25,12 +25,12 @@ def about():
 def login():
      email = None
      form = LoginForm()
-     #validate
+     #validate 
      if form.validate_on_submit():
           email = form.email.data
           form.email.data = ''
+          flash("Form submitted successfully")
      return render_template("login.html", email = email, form = form)
-
 
 
 @app.errorhandler(404)
